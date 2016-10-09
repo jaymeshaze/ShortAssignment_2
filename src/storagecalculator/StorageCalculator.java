@@ -6,6 +6,8 @@
 package storagecalculator;
 
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -30,11 +32,11 @@ public class StorageCalculator extends Application {
         Text calcAmount = new Text();
         TextField textSize = new TextField();
         TextField textQuality = new TextField();
-    
+        
         Button btn = new Button("Calculate");
         btn.setOnAction(value -> {
-            videoBean.setSeconds(Integer.parseInt(enterSize.getText()));
-            videoBean.setVideoQuality(Integer.parseInt(enterQuality.getText()));
+            videoBean.setSeconds(Integer.parseInt(textQuality.getText()));
+            videoBean.setVideoQuality(Integer.parseInt(textQuality.getText()));
             calcAmount.setText(videoBean.calcStorage());
         });
         
