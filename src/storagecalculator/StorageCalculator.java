@@ -21,7 +21,7 @@ import javafx.stage.Stage;
  * @author Kris Hayes
  */
 public class StorageCalculator extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) {
         VideoStorage videoBean = new VideoStorage();
@@ -30,17 +30,12 @@ public class StorageCalculator extends Application {
         Text calcAmount = new Text();
         TextField textSize = new TextField();
         TextField textQuality = new TextField();
-        
-        
+    
         Button btn = new Button("Calculate");
         btn.setOnAction(value -> {
-            try{
-                videoBean.setSeconds(Integer.parseInt(enterSize.getText()));
-                videoBean.setVideoQuality(Integer.parseInt(enterQuality.getText()));
-                calcAmount.setText(videoBean.calcStorage());
-            }catch (NumberFormatException ex){
-                System.out.println(ex);
-            }
+            videoBean.setSeconds(Integer.parseInt(enterSize.getText()));
+            videoBean.setVideoQuality(Integer.parseInt(enterQuality.getText()));
+            calcAmount.setText(videoBean.calcStorage());
         });
         
         GridPane pane1 = new GridPane();
